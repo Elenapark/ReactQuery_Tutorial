@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
+import Characters from './components/Characters'
+import {QueryClientProvider, QueryClient} from 'react-query'
 
+const queryClient = new QueryClient();
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
+    
     <div className="App">
-   
+      <div className="container">
+        <h1>Rick and Morty</h1>
+        <QueryClientProvider client={queryClient}>
+         <Characters />  
+        </QueryClientProvider>
+      </div>
     </div>
   )
 }
